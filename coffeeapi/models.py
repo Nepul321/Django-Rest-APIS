@@ -9,7 +9,7 @@ class Ingredient(models.Model):
 class Coffee(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField()
-    ingredients = models.ManyToManyField(Ingredient, blank=True, related_name="ingredients")
+    ingredients = models.ManyToManyField(Ingredient, related_name="ingredients")
 
     def __str__(self):
         return self.name
