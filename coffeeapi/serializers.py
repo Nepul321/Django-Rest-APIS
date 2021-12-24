@@ -8,7 +8,7 @@ class CoffeeSerializer(serializers.ModelSerializer):
     ingredients = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = Coffee
-        fields = ('id', 'name', 'image', 'description', 'ingredients')
+        fields = ('name', 'image', 'description', 'ingredients')
 
     def get_ingredients(self, obj):
         ingredients = []
