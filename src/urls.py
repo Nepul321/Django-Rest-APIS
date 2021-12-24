@@ -14,8 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.http.response import JsonResponse
+from django.urls import path, include
+
+def HomeView(request):
+    username = request.user.username or "Visitor"
+    return JsonResponse({'message' : f'Hello {username}'})
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', HomeView, name="home"),
+    path('api/coffee/', include('coffeeapi.urls')),
 ]
