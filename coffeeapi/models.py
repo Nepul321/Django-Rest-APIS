@@ -8,6 +8,7 @@ class Ingredient(models.Model):
 
 class Coffee(models.Model):
     name = models.CharField(max_length=255, unique=True)
+    image = models.URLField(blank=True)
     description = models.TextField()
     ingredients = models.ManyToManyField(Ingredient, related_name="ingredients")
 
