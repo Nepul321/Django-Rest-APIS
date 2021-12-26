@@ -25,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView, name="home"),
     path('api/coffee/', include('coffeeapi.urls')),
+    path('api/survey/', include('survey.urls')),
 ]
